@@ -20,3 +20,6 @@ venv
 
 #サーバー設定のメモ
 memo.txt
+
+#実行用バッチファイル
+start_app.bat
