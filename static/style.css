@@ -1,0 +1,309 @@
+/* ========================================
+   CSS Custom Properties (Variables)
+======================================== */
+:root {
+  /* Color Palette */
+  --primary-color: #3498db;
+  --primary-hover: #2980b9;
+  --secondary-color: #2c3e50;
+  --success-color: #27ae60;
+  --success-hover: #219653;
+  --danger-color: #e74c3c;
+  --danger-hover: #c0392b;
+  --disabled-color: #95a5a6;
+  
+  /* Text Colors */
+  --text-primary: #333;
+  --text-secondary: #7f8c8d;
+  --text-muted: #495057;
+  
+  /* Background Colors */
+  --bg-light: #f9f9f9;
+  --bg-white: #fff;
+  --bg-readonly: #f8f9fa;
+  
+  /* Border Colors */
+  --border-light: #ddd;
+  --border-readonly: #e9ecef;
+  
+  /* Spacing */
+  --spacing-xs: 10px;
+  --spacing-sm: 15px;
+  --spacing-md: 20px;
+  --spacing-lg: 25px;
+  --spacing-xl: 30px;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  
+  /* Font Sizes */
+  --font-sm: 0.9em;
+  --font-base: 16px;
+  --font-lg: 1.1em;
+  --font-xl: 1.2em;
+  
+  /* Layout */
+  --max-width: 1000px;
+  --line-height: 1.6;
+}
+
+/* ========================================
+   Base Styles
+======================================== */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  line-height: var(--line-height);
+  color: var(--text-primary);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--spacing-md);
+}
+
+/* ========================================
+   Typography
+======================================== */
+h1 {
+  color: var(--secondary-color);
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+label {
+  font-weight: bold;
+  font-size: var(--font-lg);
+  color: var(--secondary-color);
+}
+
+.note {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  margin-top: var(--spacing-md);
+  line-height: 1.4;
+}
+
+/* ========================================
+   Layout Components
+======================================== */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.text-area {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.buttons {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin: var(--spacing-md) 0;
+}
+
+/* ========================================
+   Form Sections
+======================================== */
+.form-section {
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-md);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-light);
+}
+
+.form-section h2 {
+  color: var(--secondary-color);
+  margin-bottom: var(--spacing-md);
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: var(--spacing-xs);
+}
+
+.subsection {
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-sm);
+  background-color: var(--bg-white);
+  border-left: 4px solid var(--primary-color);
+  border-radius: var(--radius-sm);
+}
+
+.subsection h3 {
+  color: var(--secondary-color);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-xl);
+}
+
+/* ========================================
+   Form Controls
+======================================== */
+textarea,
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-base);
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+/* ========================================
+   Radio Buttons
+======================================== */
+/* ラジオボタンの配置調整 */
+.subsection > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.subsection input[type="radio"] {
+  width: auto;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.subsection label {
+  margin: 0;
+  cursor: pointer;
+}
+
+/* ========================================
+   Buttons
+======================================== */
+button {
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-base);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--primary-hover);
+}
+
+button:disabled {
+  background-color: var(--disabled-color);
+  cursor: not-allowed;
+}
+
+/* Button Variants */
+.btn-success,
+#copyBtn  {
+  background-color: var(--success-color);
+}
+
+.btn-success:hover,
+#copyBtn:hover {
+  background-color: var(--success-hover);
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  order: -1; /* Position on the left */
+}
+
+.btn-danger:hover {
+  background-color: var(--danger-hover);
+}
+
+
+/* ========================================
+   Status & Feedback
+======================================== */
+.status {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  display: none;
+}
+
+.status.success {
+  background-color: var(--bg-success);
+  color: var(--text-success);
+  border: 1px solid var(--border-success);
+}
+
+.status.error {
+  background-color: var(--bg-error);
+  color: var(--text-error);
+  border: 1px solid var(--border-error);
+}
+/* ========================================
+   Error-message
+======================================== */
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+}
+/* ========================================
+   Responsive Design
+======================================== */
+@media (max-width: 768px) {
+  :root {
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 25px;
+  }
+  
+  body {
+    padding: var(--spacing-sm);
+  }
+  
+  .form-section {
+    padding: var(--spacing-sm);
+  }
+  
+  .subsection {
+    padding: var(--spacing-xs);
+  }
+  
+  .buttons {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  
+  button {
+    width: 100%;
+  }
+  
+
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-base: 14px;
+    --spacing-sm: 10px;
+    --spacing-md: 12px;
+  }
+  
+  h1 {
+    font-size: 1.5em;
+  }
+  
+  .form-section h2 {
+    font-size: 1.3em;
+  }
+  
+  .subsection h3 {
+    font-size: 1.1em;
+  }
+  
+
+}

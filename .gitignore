@@ -1,0 +1,22 @@
+# バイナリーファイルが生成されるフォルダー
+bin/
+# ライブラリーを収録するフォルダー
+lib/
+# pyenvの設定ファイル
+pyvenv.cfg
+# visual stadio codeの設定フォルダー
+.vscode/
+# Windowsが自動生成するキャッシュファイル
+Thumbs.db
+
+#管理画面のユーザー環境変数
+.env
+
+#pythonのキャッシュ
+__pycache__
+
+#仮想環境
+venv
+
+#サーバー設定のメモ
+memo.txt

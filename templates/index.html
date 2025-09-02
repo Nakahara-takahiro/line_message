@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="same-origin" />
+    <title>LINEメッセージ用テキスト変換アプリ</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>メモから文章生成します</h1>
+
+      <!-- エラーメッセージ表示 -->
+      {% for message in get_flashed_messages() %}
+      <div class="error-message">{{ message }}</div>
+      {% endfor %}
+
+      <div class="form-section">
+        <form method="POST">
+          <!-- ラジオボタン -->
+          <div class="subsection">
+            <h3>文章のスタイルを選択してください</h3>
+            <div>
+              <input type="radio" id="casual_family" name="style"
+              value="casual_family" {% if selected_style == 'casual_family' or
+              not selected_style %}checked{% endif %} />
+              <label for="casual_family"
+                >カジュアルで30～50代子持ち女性向け</label
+              >
+            </div>
+            <div>
+              <input type="radio" id="formal_family" name="style"
+              value="formal_family" {% if selected_style == 'formal_family'
+              %}checked{% endif %} />
+              <label for="formal_family"
+                >フォーマルで30～50代子持ち女性向け</label
+              >
+            </div>
+            <div>
+              <input type="radio" id="standard_all" name="style"
+              value="standard_all" {% if selected_style == 'standard_all'
+              %}checked{% endif %} />
+              <label for="standard_all">全年齢向けで標準</label>
+            </div>
+          </div>
+
+          <!-- テキスト入力エリア -->
+          <div class="text-area">
+            <label for="text_input"
+              >あなたが書いたメッセージを入力してください</label
+            >
+            <textarea id="text_input" name="input_words" required>
+{{ input_text or '' }}</textarea
+            >
+          </div>
+
+          <!-- 変換ボタン -->
+          <div class="buttons">
+            <button type="submit">変換</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- 出力エリア -->
+      <div class="form-section">
+        <div class="text-area">
+          <label for="converted_output">LINE用メッセージ:</label>
+          <textarea
+            id="converted_output"
+            name="converted_text"
+            rows="20"
+            cols="50"
+          >
+{{ converted_text or '' }}</textarea
+          >
+
+          <!-- コピーボタン -->
+          <div class="buttons">
+            <button type="button" id="copy_button" class="btn-success">
+              コピー
+            </button>
+            <button type="button" id="clear_button" class="btn-warning">
+            すべて消去
+          </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+  </body>
+</html>
